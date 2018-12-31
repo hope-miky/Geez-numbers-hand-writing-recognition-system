@@ -2,12 +2,12 @@
 """
 Created on Mon Dec 31 02:17:01 2018
 
-@author: Hope
+@author: Tesfamichael Molla
 """
 
 from tkinter import *
 from tkinter.colorchooser import askcolor
-
+from PIL import ImageGrab
 
 
 class Paint(object):
@@ -51,8 +51,14 @@ class Paint(object):
 
     def use_pen(self):
         #self.activate_button(self.pen_button)
-        s = str(self.count) + '.ps'
-        self.c.postscript(file=s,colormode='color')
+        s = str(self.count) + '.jpg'
+        #self.c.postscript(file=s,colormode='color')
+
+        x=self.root.winfo_rootx()+ self.c.winfo_x()
+        y=self.root.winfo_rooty()+ self.c.winfo_y()
+        x1= x + self.c.winfo_width()
+        y1= y + self.c.winfo_height()
+        ImageGrab.grab().crop((x,y,x1,y1)).save(s)
         self.count = self.count + 1
         self.c.delete('all')
 
