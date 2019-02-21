@@ -9,7 +9,7 @@ from tkinter import *
 from tkinter.colorchooser import askcolor
 from PIL import ImageGrab
 
-
+ 
 class Paint(object):
 
     DEFAULT_PEN_SIZE = 50
